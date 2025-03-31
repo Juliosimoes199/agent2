@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from func import *
 import cv2
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -97,6 +98,12 @@ def filtros():
     finally:
         # Garante que o navegador seja fechado
         navegador.quit()
+
+@app.route('/test', methods=['GET'])
+def test():
+    ola()
+
+
 
 # Executa o servidor Flask
 if __name__ == '__main__':
