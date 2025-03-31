@@ -101,7 +101,7 @@ def filtros():
 
 @app.route('/ver', methods=['GET'])
 def ver():
-    return "Ola novamente"
+    return "Ola novamente tas bom"
 
 
 
