@@ -65,26 +65,6 @@ def filtros():
         #time.sleep(20)
         #navegador.find_element(By.XPATH, '//*[@id="radix-:ri:"]/ul/li[3]/a/span').click()
 
-        navegador.save_screenshot('screenshot.png')
-
-        # Carrega a captura de tela e a imagem do elemento
-        screenshot = cv2.imread('screenshot.png')
-        element_image = cv2.imread('confirmados.png')
-
-        # Usa OpenCV para localizar a posição do elemento na captura de tela
-        result = cv2.matchTemplate(screenshot, element_image, cv2.TM_CCOEFF_NORMED)
-        min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
-
-        # Desenha um retângulo ao redor do elemento encontrado
-        top_left = max_loc
-        bottom_right = (top_left[0] + element_image.shape[1], top_left[1] + element_image.shape[0])
-        cv2.rectangle(screenshot, top_left, bottom_right, (0, 255, 0), 2)
-        click_script = f"document.elementFromPoint({bottom_right[0]}, {bottom_right[1]}).click();"
-        navegador.execute_script(click_script)
-
-        # Salva a imagem resultante
-        cv2.imwrite('resultado.png', screenshot)
-        time.sleep(1)
         # Retorna a URL atual como resposta
         current_url = navegador.current_url
         print("URL atual da aba:", current_url)
