@@ -101,7 +101,8 @@ def filtros():
 
 @app.route('/ver', methods=['GET'])
 def ver():
-    return ola1()
+    s = ola1()
+    return s
 
 
 
