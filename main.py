@@ -99,9 +99,9 @@ def filtros():
         # Garante que o navegador seja fechado
         navegador.quit()
 
-@app.route('/test', methods=['GET'])
-def test():
-    return ola()
+@app.route('/ver', methods=['GET'])
+def ver():
+    return "Ola novamente"
 
 
 
