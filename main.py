@@ -1,13 +1,12 @@
 from flask import Flask, jsonify, request
-import func
 import re
 import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import RSLPStemmer
+
 nltk.download('punkt')
 nltk.download('stopwords')
-
 
 app = Flask(__name__)
 
@@ -18,9 +17,9 @@ def hello_world():
 @app.route('/tecnico_laboratorio', methods=['GET'])
 def tecnico_laboratorio():
     if request.method == 'GET':
-         question = "Gere um laudo" #
+        question = "Gere um laudo"  #
 
-         lista_de_frases = [
+        lista_de_frases = [
             "Filtragem de Exames Confirmados.",
             "Alocação de Técnicos de Laboratório nos Exames Confirmados.",
             "Filtragem dos Perfis dos Pacientes.",
@@ -52,7 +51,7 @@ def tecnico_laboratorio():
                 frase = frase.replace(palavra, "")
             return frase.strip()
 
-# Função para normalizar frases e extrair palavras-chave
+        # Função para normalizar frases e extrair palavras-chave
         def normalizar_frase(frase):
             stemmer = RSLPStemmer()  # Stemmer para Português
             stop_words = set(stopwords.words('portuguese'))  # Remove palavras irrelevantes
@@ -60,7 +59,7 @@ def tecnico_laboratorio():
             palavras_normalizadas = [stemmer.stem(p) for p in palavras if p not in stop_words and re.match(r'\w+', p)]
             return " ".join(palavras_normalizadas)
 
-# Função para verificar correspondência de frases normalizadas
+        # Função para verificar correspondência de frases normalizadas
         def verificar_correspondencia(frase, lista):
             frase_limpa = limpar_frase(frase)  # Remove palavras supérfluas
             frase_normalizada = normalizar_frase(frase_limpa)
@@ -69,7 +68,7 @@ def tecnico_laboratorio():
                     return item
             return None
 
-    # Verifica correspondência direta com base em normalização
+        # Verifica correspondência direta com base em normalização
         correspondente = verificar_correspondencia(question, lista_de_frases)
         if correspondente:
             indice = ver(correspondente, lista_de_frases)
@@ -77,17 +76,10 @@ def tecnico_laboratorio():
         else:
             return jsonify({"status": "erro", "mensagem": "Permissão negada para essa funcionalidade."}), 403
 
-    
-   # v = func.filto_exames_confirmado()
-   # return v
-    
-
 @app.route('/ver', methods=['GET'])
-def ver():
-    s = func.ola()
+def ver_rota():
+    s = "Olá da rota /ver!" # Supondo que func.ola() retorne uma string
     return s
-
-
 
 # Executa o servidor Flask
 if __name__ == '__main__':
