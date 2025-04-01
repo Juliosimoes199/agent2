@@ -18,7 +18,9 @@ def hello_world():
 @app.route('/tecnico_laboratorio', methods=['POST'])
 def tecnico_laboratorio():
     if request.method == 'POST':
-        question = request.form['question']
+         question = request.form.get('question', None)  # Evita KeyError
+            if not question:
+                return jsonify({"status": "erro", "mensagem": "Parâmetro 'question' está ausente ou vazio."}), 400
 
         lista_de_frases = [
             "Filtragem de Exames Confirmados.",
