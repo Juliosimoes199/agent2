@@ -15,12 +15,10 @@ app = Flask(__name__)
 def hello_world():
     return 'Olá do Flask!'
 
-@app.route('/tecnico_laboratorio', methods=['POST'])
+@app.route('/tecnico_laboratorio', methods=['GET'])
 def tecnico_laboratorio():
-    if request.method == 'POST':
-         question = request.form.get('question', None)  # Evita KeyError
-            if not question:
-                return jsonify({"status": "erro", "mensagem": "Parâmetro 'question' está ausente ou vazio."}), 400
+    if request.method == 'GET':
+         question = "Gere um laudo"
 
         lista_de_frases = [
             "Filtragem de Exames Confirmados.",
