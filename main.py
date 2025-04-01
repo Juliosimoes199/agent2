@@ -18,7 +18,7 @@ def hello_world():
 @app.route('/tecnico_laboratorio', methods=['GET'])
 def tecnico_laboratorio():
     if request.method == 'GET':
-         question = "Gere um laudo"
+         question = "Gere um laudo" #
 
         lista_de_frases = [
             "Filtragem de Exames Confirmados.",
