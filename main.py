@@ -21,8 +21,10 @@ def hello_world():
 def tecnico_laboratorio():
     try:
         if request.method == 'POST':
-            question = request.form['question']  #
-
+            question = request.form['question'] #
+            email = request.form['email']
+            password = request.form['password']
+            
             lista_de_frases = [
                 "Filtragem de Exames Confirmados.",
                 "Alocação de Técnicos de Laboratório nos Exames Confirmados.",
@@ -79,7 +81,7 @@ def tecnico_laboratorio():
                 url = None
                 if indice is not None:
                     if indice == 0:
-                        url = func.filto_exames_confirmado()
+                        url = func.filto_exames_confirmado(email, password)
                     return jsonify({"status": "sucesso", "frase": correspondente, "indice": indice, "url":url})
                 else:
                     return jsonify({"status": "erro", "mensagem": "Índice não encontrado."}), 500
