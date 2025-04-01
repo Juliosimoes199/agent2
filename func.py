@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 import time
 
 
-def filto_exames_confirmado():
+def filto_exames_confirmado(email, password):
     # Configura o modo headless no Chrome
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Executa sem interface gráfica
@@ -25,8 +25,8 @@ def filto_exames_confirmado():
         navegador.get('https://akin-lis-app-web.vercel.app/')
 
         # Preenche as abas de login
-        navegador.find_element("id", "email").send_keys("jpedro@gmail.com")
-        navegador.find_element("id", "password").send_keys("jpe2024")
+        navegador.find_element("id", "email").send_keys(email)
+        navegador.find_element("id", "password").send_keys(password)
 
         # Clica no botão de login
         wait = WebDriverWait(navegador, 30)
