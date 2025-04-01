@@ -8,6 +8,7 @@ from nltk.stem import RSLPStemmer
 
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('rslp')
 
 app = Flask(__name__)
 
