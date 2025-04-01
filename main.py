@@ -76,8 +76,12 @@ def tecnico_laboratorio():
             correspondente = verificar_correspondencia(question, lista_de_frases)
             if correspondente:
                 indice = ver(correspondente, lista_de_frases)
+                url = None
                 if indice is not None:
-                    return jsonify({"status": "sucesso", "frase": correspondente, "indice": indice})
+                    if indice == 0:
+                        url = filtar_exames_confirmados()
+                        return url
+                    return jsonify({"status": "sucesso", "frase": correspondente, "indice": indice, "url":url})
                 else:
                     return jsonify({"status": "erro", "mensagem": "Índice não encontrado."}), 500
             else:
