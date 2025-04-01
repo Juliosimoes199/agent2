@@ -1,9 +1,13 @@
 from flask import Flask, jsonify, request
 import func
 import re
+import nltk
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import RSLPStemmer
+nltk.download('punkt')
+nltk.download('stopwords')
+
 
 app = Flask(__name__)
 
