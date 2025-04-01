@@ -1,3 +1,4 @@
+import func
 from flask import Flask, jsonify, request
 import re
 import nltk
@@ -78,7 +79,7 @@ def tecnico_laboratorio():
 
 @app.route('/ver', methods=['GET'])
 def ver_rota():
-    s = "Olá da rota /ver!"  # Supondo que func.ola() retorne uma string
+    s = func.ola()  # Supondo que func.ola() retorne uma string
     return s
 
 # Executa o servidor Flask
