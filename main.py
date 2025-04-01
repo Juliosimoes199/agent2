@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Olá do Flask!'
+    return 'Olá do Flask! ams'
 
 @app.route('/tecnico_laboratorio', methods=['GET'])
 def tecnico_laboratorio():
