@@ -15,10 +15,10 @@ app = Flask(__name__)
 def hello_world():
     return 'Olá do Flask!'
 
-@app.route('/tecnico_laboratorio', methods=['POST'])
+@app.route('/tecnico_laboratorio', methods=['GET'])
 def tecnico_laboratorio():
-    if request.method == 'POST':
-        question = request.form['question']
+    if request.method == 'GET':
+        question = "Gere um laudo"
         lista_de_frases = [
             "Filtragem de Exames Confirmados.",
             "Alocação de Técnicos de Laboratório nos Exames Confirmados.",
