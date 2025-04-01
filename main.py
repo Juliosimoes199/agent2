@@ -78,7 +78,7 @@ def tecnico_laboratorio():
 
 @app.route('/ver', methods=['GET'])
 def ver_rota():
-    s = "Olá da rota /ver!" # Supondo que func.ola() retorne uma string
+    s = "Olá da rota /ver!"  # Supondo que func.ola() retorne uma string
     return s
 
 # Executa o servidor Flask
