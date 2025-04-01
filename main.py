@@ -67,7 +67,8 @@ def tecnico_laboratorio():
     # Verifica correspondência direta com base em normalização
         correspondente = verificar_correspondencia(question, lista_de_frases)
         if correspondente:
-            return jsonify({"status": "sucesso", "frase": correspondente, "indice": v})
+            indice = ver(correspondente, lista_de_frases)
+            return jsonify({"status": "sucesso", "frase": correspondente, "indice": indice})
         else:
             return jsonify({"status": "erro", "mensagem": "Permissão negada para essa funcionalidade."}), 403
 
