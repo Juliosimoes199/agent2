@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from func import *
+import func
 import cv2
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -101,7 +101,8 @@ def filtros():
 
 @app.route('/ver', methods=['GET'])
 def ver():
-    return "Ola mais uma vez"
+    s = func.ola()
+    return s
 
 
 
