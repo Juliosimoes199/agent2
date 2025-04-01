@@ -15,7 +15,7 @@ app = Flask(__name__)
 def hello_world():
     return 'Olá do Flask!'
 
-@app.route('/tecnico_laboratorio', methods=['POST', 'GET'])
+@app.route('/tecnico_laboratorio', methods=['POST'])
 def tecnico_laboratorio():
     if request.method == 'POST':
         question = request.form['question']
