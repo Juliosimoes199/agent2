@@ -17,11 +17,11 @@ app = Flask(__name__)
 def hello_world():
     return 'Olá do Flask!'
 
-@app.route('/tecnico_laboratorio', methods=['GET'])
+@app.route('/tecnico_laboratorio', methods=['POST'])
 def tecnico_laboratorio():
     try:
-        if request.method == 'GET':
-            question = "Gere um laudo"  #
+        if request.method == 'POST':
+            question = request.form['question']  #
 
             lista_de_frases = [
                 "Filtragem de Exames Confirmados.",
