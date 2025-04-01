@@ -20,7 +20,7 @@ def tecnico_laboratorio():
     if request.method == 'GET':
          question = "Gere um laudo" #
 
-        lista_de_frases = [
+         lista_de_frases = [
             "Filtragem de Exames Confirmados.",
             "Alocação de Técnicos de Laboratório nos Exames Confirmados.",
             "Filtragem dos Perfis dos Pacientes.",
