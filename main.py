@@ -17,7 +17,8 @@ def hello_world():
 
 @app.route('/tecnico_laboratorio', methods=['GET'])
 def tecnico_laboratorio():
-    return func.filto_exames_confirmado()
+    v = func.filto_exames_confirmado()
+    return v
     
 
 @app.route('/ver', methods=['GET'])
