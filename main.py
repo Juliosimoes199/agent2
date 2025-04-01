@@ -79,7 +79,7 @@ def tecnico_laboratorio():
                 url = None
                 if indice is not None:
                     if indice == 0:
-                        url = filtar_exames_confirmados()
+                        url = filto_exames_confirmado()
                     return jsonify({"status": "sucesso", "frase": correspondente, "indice": indice, "url":url})
                 else:
                     return jsonify({"status": "erro", "mensagem": "Índice não encontrado."}), 500
