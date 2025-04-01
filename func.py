@@ -1,7 +1,7 @@
 
 def ola():
-    print("Ola mundo")
+    return "Ola mundo"
 
 
 def ola1():
-    print("Mas uma vez")
+    return "Mas uma vez"
