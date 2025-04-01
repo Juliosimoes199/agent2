@@ -28,19 +28,19 @@ def tecnico_laboratorio():
             lista_de_frases = [
                 "Filtragem de Exames Confirmados.",
                 "Filtre Exames Confirmados",
-                "Alocação de Técnicos de Laboratório nos Exames Confirmados.",
+                "Alocação de Técnicos de Laboratorio nos Exames Confirmados.",
                 "Filtragem dos Perfis dos Pacientes.",
                 "Edição de Dados dos Perfis dos Pacientes.",
-                "Filtragem de Histórico de Exames.",
-                "Filtragem de Próximos Exames.",
-                "Inicializar Análise de Imagens Microscópicas Automatizada.",
-                "Inicializar Análise de Imagens Microscópicas Manual.",
+                "Filtragem de Historico de Exames.",
+                "Filtragem de Proximos Exames.",
+                "Inicializar Analise de Imagens Microscopicas Automatizada.",
+                "Inicializar Analise de Imagens Microscopicas Manual.",
                 "Geração de Laudo Laboratorial.",
                 "Envio de Laudo Laboratorial.",
-                "Filtragem de Perfis de Técnicos de Laboratórios.",
-                "Remover Perfis de Técnicos de Laboratório.",
-                "Editar Perfis de Técnicos de Laboratório.",
-                "Monitoramento de Actividades de Técnicos de Laboratórios."
+                "Filtragem de Perfis de Técnicos de Laboratorios.",
+                "Remover Perfis de Técnicos de Laboratorio.",
+                "Editar Perfis de Técnicos de Laboratorio.",
+                "Monitoramento de Actividades de Tecnicos de Laboratorios."
             ]
 
             def ver(frase, lista):
