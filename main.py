@@ -17,7 +17,7 @@ app = Flask(__name__)
 def hello_world():
     return 'Olá do Flask!'
 
-@app.route('/tecnico_laboratorio', methods=['POST'])
+@app.route('/chefe_laboratorio', methods=['POST'])
 def tecnico_laboratorio():
     try:
         if request.method == 'POST':
@@ -27,6 +27,7 @@ def tecnico_laboratorio():
             
             lista_de_frases = [
                 "Filtragem de Exames Confirmados.",
+                "Filtre Exames Confirmados",
                 "Alocação de Técnicos de Laboratório nos Exames Confirmados.",
                 "Filtragem dos Perfis dos Pacientes.",
                 "Edição de Dados dos Perfis dos Pacientes.",
@@ -80,7 +81,7 @@ def tecnico_laboratorio():
                 indice = ver(correspondente, lista_de_frases)
                 url = None
                 if indice is not None:
-                    if indice == 0:
+                    if (indice == 0) or (indice == 1):
                         url = func.filto_exames_confirmado(email, password)
                     return jsonify({"status": "sucesso", "frase": correspondente, "indice": indice, "url":url})
                 else:
