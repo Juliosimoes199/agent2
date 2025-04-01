@@ -82,7 +82,7 @@ def filto_exames_confirmado():
         # Retorna a URL atual como resposta
         current_url = navegador.current_url
         print("URL atual da aba:", current_url)
-        return jsonify({"url_atual": current_url})
+        return current_url
 
     except TimeoutException:
         print("O botão 'Agendamentos' não apareceu a tempo.")
