@@ -3,7 +3,7 @@ from fuzzywuzzy import fuzz
 from flask import Flask, jsonify, request
 import sys
 import re
-# import func  # Remova se não estiver usando
+import func
 
 app = Flask(__name__)
 nlp = spacy.load("pt_core_news_md")  # Carrega o modelo Spacy uma vez
@@ -45,7 +45,8 @@ def tecnico_laboratorio():
     #texto = "Analise manual mais exames e exames laboratorias tambem"
     resultados = analisar_texto(texto, palavras_chave)
     if ("filtro" in resultados) & ("exames" in resultados):
-        return jsonify({"status": resultados})
+        url = func.filto_exames_confirmado(email, password)
+        return jsonify({"status": resultados, "url": url})
     else:
         return "Não tem"
         
