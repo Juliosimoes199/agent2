@@ -12,8 +12,9 @@ nlp = spacy.load("pt_core_news_md")  # Carrega o modelo Spacy uma vez
 def hello_world():
     return 'Olá do Flask!'
 
-@app.route('/chefe_laboratorio', methods=['GET'])
+@app.route('/chefe_laboratorio', methods=['POST'])
 def tecnico_laboratorio():
+    texto = request.form['texto']
     def analisar_texto(texto, palavras_chave):
         resultados = []
         doc = nlp(texto)
@@ -41,7 +42,7 @@ def tecnico_laboratorio():
                       "monitorar", "monitoramento", "actividades",
                       "Acção", "movimento", "trabalho"]
 
-    texto = "Analise manual mais exames e exames laboratorias tambem"
+    #texto = "Analise manual mais exames e exames laboratorias tambem"
     resultados = analisar_texto(texto, palavras_chave)
     if ("filtro" in resultados) & ("exames" in resultados):
         return jsonify({"status": resultados})
