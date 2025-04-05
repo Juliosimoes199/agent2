@@ -2,6 +2,8 @@ import func
 import time
 from flask import Flask, jsonify, request
 import sys
+import spacy
+from fuzzywuzzy import fuzz
 
 
 app = Flask(__name__)
