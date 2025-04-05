@@ -43,8 +43,12 @@ def tecnico_laboratorio():
 
     texto = "Analise manual mais exames e exames laboratorias tambem"
     resultados = analisar_texto(texto, palavras_chave)
-
-    return jsonify({"status": resultados})
+    if ("filtro" in resultados) & ("exames" in resultados):
+        return jsonify({"status": resultados})
+    else:
+        return "Não tem"
+        
+    #return jsonify({"status": resultados})
 
 @app.route('/ver', methods=['GET'])
 def ver_rota():
