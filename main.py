@@ -10,7 +10,7 @@ nlp = spacy.load("pt_core_news_md")  # Carrega o modelo Spacy uma vez
 
 @app.route('/')
 def hello_world():
-    return 'Olá do Flask!'
+    return 'Olá do Flask! oi'
 
 @app.route('/chefe_laboratorio', methods=['POST'])
 def tecnico_laboratorio():
