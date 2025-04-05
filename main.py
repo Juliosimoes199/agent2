@@ -1,6 +1,8 @@
+  GNU nano 4.8                          /home/akin_osapicare/agent2/main.py                                     
 import func
 from flask import Flask, jsonify, request
-
+import sys
+print(f"Python executável: {sys.executable}")
 
 
 
