@@ -15,6 +15,8 @@ def hello_world():
 @app.route('/chefe_laboratorio', methods=['POST'])
 def tecnico_laboratorio():
     texto = request.form['texto']
+    email = request.form['email']
+    password = request.form['password']
     def analisar_texto(texto, palavras_chave):
         resultados = []
         doc = nlp(texto)
