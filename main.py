@@ -2,7 +2,7 @@ import spacy
 from fuzzywuzzy import fuzz
 from flask import Flask, jsonify, request
 import sys
-import time
+import re
 # import func  # Remova se não estiver usando
 
 app = Flask(__name__)
