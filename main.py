@@ -41,7 +41,7 @@ def tecnico_laboratorio():
                       "monitorar", "monitoramento", "actividades",
                       "Acção", "movimento", "trabalho"]
 
-    texto = "Analise manual mais exames e exames lboratorias tambem"
+    texto = "Analise manual mais exames e exames laboratorias tambem"
     resultados = analisar_texto(texto, palavras_chave)
 
     return jsonify({"status": resultados})
