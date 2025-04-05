@@ -10,7 +10,7 @@ app = Flask(__name__)
 def hello_world():
     return 'Olá do Flask!'
 
-@app.route('/chefe_laboratorio', methods=['POST'])
+@app.route('/chefe_laboratorio', methods=['GET'])
 def tecnico_laboratorio():
     return 'Mais'
 
