@@ -54,7 +54,7 @@ def tecnico_laboratorio():
 
         informacoes, outras_entidades = func.extrair_informacoes_pessoais("Jesus esta aqui")
         nomes = informacoes['nomes']
-        nomes[0]
+        nomes = nomes[0]
         
         nome = "Kuenda"
         url = func.filtro_pacientes(nome, password, email)
