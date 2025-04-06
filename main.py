@@ -80,8 +80,8 @@ def tecnico_laboratorio():
 
             return informacoes_pessoais, outras_entidades
 
-
-        informacoes, outras_entidades = extrair_informacoes_pessoais("júlio césar onde tenta")
+        global infor
+        informacoes, outras_entidades = extrair_informacoes_pessoais(infor)
         nomes = informacoes['nomes']
         nomes= nomes[0]
         
