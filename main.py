@@ -82,6 +82,7 @@ def tecnico_laboratorio():
         nomes = informacoes['nomes']
         if nomes:
             nomes = nomes[0]
+            nomes = "júlio"
             url = func.filtro_pacientes(nomes, password, email)
             return jsonify({"status": resultados, "url": url, "nomes": nomes})
         else:
