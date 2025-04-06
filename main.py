@@ -80,12 +80,12 @@ def tecnico_laboratorio():
             return informacoes_pessoais, outras_entidades
 
 
-        informacoes, outras_entidades = extrair_informacoes_pessoais("Jesus esta aqui")
+        informacoes, outras_entidades = extrair_informacoes_pessoais(texto)
         nomes = informacoes['nomes']
         nomes= nomes[0]
         
-        nome = "Kuenda"
-        url = func.filtro_pacientes(nome, password, email)
+        #nome = "Kuenda"
+        url = func.filtro_pacientes(nomes, password, email)
         return jsonify({"status": resultados, "url":url, "nomes":nomes})
     else:
         return "Não tem"
