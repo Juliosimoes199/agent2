@@ -78,16 +78,12 @@ def tecnico_laboratorio():
         return jsonify({"status": resultados, "url": url})
 
     elif ("filtro" in resultados) & (("perfis" in resultados) or ("pacientes" in resultados)):
+        
         informacoes, outras_entidades = extrair_informacoes_pessoais("júlio")
-        #nomes = informacoes['nomes']
         nomes = "júlio"
-        if nomes:
-            #nomes = nomes[0]
-            nomes = "júlio"
-            url = func.filtro_pacientes(nomes, password, email)
-            return jsonify({"status": resultados, "url": url, "nomes": nomes})
-        else:
-            return jsonify({"status": resultados, "url": "Erro: Nenhum nome encontrado", "nomes": []})
+        url = func.filtro_pacientes(nomes, password, email)
+        return jsonify({"status": resultados, "url": url, "nomes": nomes})
+
     else:
         return "Não tem"
 
