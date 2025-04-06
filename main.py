@@ -42,13 +42,16 @@ def tecnico_laboratorio():
                       "geração", "gerar", "laudo",
                       "envio", "remover", "eliminar",
                       "monitorar", "monitoramento", "actividades",
-                      "Acção", "movimento", "trabalho"]
+                      "Acção", "movimento", "trabalho", "faça"]
 
     #texto = "Analise manual mais exames e exames laboratorias tambem"
     resultados = analisar_texto(texto, palavras_chave)
     if ("filtro" in resultados) & ("exames" in resultados):
         url = func.filto_exames_confirmado(email, password)
         return jsonify({"status": resultados, "url": url})
+
+    elif ("automatizada" in resultados) & (("inicializar" in resultados) or ("faça" in resultados)):
+        return jsonify({"status": resultados})
     else:
         return "Não tem"
         
