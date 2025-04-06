@@ -92,7 +92,7 @@ def filto_exames_confirmado(email, password):
         # Garante que o navegador seja fechado
         navegador.quit()
 
-def filtro_pacientes(nome, password, email):
+def filtro_pacientes(name, senha, emal):
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Executa sem interface gráfica
     chrome_options.add_argument("--no-sandbox")  # Recomendado para ambientes como VMs
@@ -109,8 +109,8 @@ def filtro_pacientes(nome, password, email):
     navegador.get('https://akin-lis-app-web.vercel.app/')
     navegador.maximize_window()
 # Preenche as abas de login (substitua 'username_field', 'password_field' e 'login_button' pelos seletores corretos)
-    navegador.find_element("id", "email").send_keys(email)
-    navegador.find_element("id", "password").send_keys(password)
+    navegador.find_element("id", "email").send_keys(emal)
+    navegador.find_element("id", "password").send_keys(senha)
 # Identificar o botão usando uma parte da classe e o tipo
 #navegador.find_element(By.CSS_SELECTOR, 'button.bg-blue-600[type="submit"]').click()
     wait = WebDriverWait(navegador, 30)
@@ -123,7 +123,7 @@ def filtro_pacientes(nome, password, email):
 
     wait = WebDriverWait(navegador, 30000)
     element = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/main/div/div/div[1]/div/div/div[1]/div[2]/input')))
-    element.send_keys(nome)
+    element.send_keys(name)
 
     wait = WebDriverWait(navegador, 30000)
     element = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/main/div/div/div[1]/div/div/div[2]/table/tbody/tr/td[6]/a')))
