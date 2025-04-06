@@ -16,6 +16,7 @@ def hello_world():
 def tecnico_laboratorio():
     texto = request.form['texto']
     email = request.form['email']
+    infor = texto
     password = request.form['password']
     def analisar_texto(texto, palavras_chave):
         resultados = []
@@ -80,7 +81,7 @@ def tecnico_laboratorio():
             return informacoes_pessoais, outras_entidades
 
 
-        informacoes, outras_entidades = extrair_informacoes_pessoais("júlio como estas")
+        informacoes, outras_entidades = extrair_informacoes_pessoais(str(infor))
         nomes = informacoes['nomes']
         nomes= nomes[0]
         
