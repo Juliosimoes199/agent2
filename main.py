@@ -95,7 +95,6 @@ def tecnico_laboratorio():
 
             return informacoes_pessoais, outras_entidades
 
-        global infor
         informacoes, outras_entidades = extrair_informacoes_pessoais("júlio")
         nomes = informacoes['nomes']
         nomes= nomes[0] 
