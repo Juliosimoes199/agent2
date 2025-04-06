@@ -9,35 +9,30 @@ app = Flask(__name__)
 nlp = spacy.load("pt_core_news_md")  # Carrega o modelo Spacy uma vez
 
 def extrair_informacoes_pessoais(texto):
-            doc = nlp(texto)
-            informacoes_pessoais = {
-            "nomes": [],
-            "emails": [],
-            "telefones": [],
-            }
-            outras_entidades = []
+    doc = nlp(texto)
+    informacoes_pessoais = {
+        "nomes": [],
+        "emails": [],
+        "telefones": [],
+    }
+    outras_entidades = []
 
     # Extrai entidades nomeadas e organiza por tipos
-            for ent in doc.ents:
-                if ent.label_ == "PER":  # Nome de pessoas
-                    informacoes_pessoais["nomes"].append(ent.text)
-                else:
-                    outras_entidades.append({"texto": ent.text, "tipo": ent.label_})
+    for ent in doc.ents:
+        if ent.label_ == "PER":  # Nome de pessoas
+            informacoes_pessoais["nomes"].append(ent.text)
+        else:
+            outras_entidades.append({"texto": ent.text, "tipo": ent.label_})
 
     # Busca por e-mails no texto usando regex
-            emails = re.findall(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", texto)
-            informacoes_pessoais["emails"].extend(emails)
+    emails = re.findall(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", texto)
+    informacoes_pessoais["emails"].extend(emails)
 
     # Busca por números de telefone no texto usando regex
-            telefones = re.findall(r"\b\d{8,11}\b", texto)
-            informacoes_pessoais["telefones"].extend(telefones)
+    telefones = re.findall(r"\b\d{8,11}\b", texto)
+    informacoes_pessoais["telefones"].extend(telefones)
 
-
-            return informacoes_pessoais, outras_entidades
-
-
-
-
+    return informacoes_pessoais, outras_entidades
 
 @app.route('/')
 def hello_world():
@@ -64,17 +59,17 @@ def tecnico_laboratorio():
         return list(set(resultados)) # Retorna apenas palavras-chave únicas encontradas
 
     palavras_chave = ["filtro", "exames", "confirmados",
-                      "alocação", "técnico", "laboratório", "Aloque",
-                      "perfis", "pacientes",
-                      "editar", "edição", "dados", "informação",
-                      "histórico", "próximos",
-                      "inicializar", "análise", "imagens",
-                      "microscópica", "automatizada", "manual",
-                      "manualmente",
-                      "geração", "gerar", "laudo",
-                      "envio", "remover", "eliminar",
-                      "monitorar", "monitoramento", "actividades",
-                      "Acção", "movimento", "trabalho", "faça"]
+                        "alocação", "técnico", "laboratório", "Aloque",
+                        "perfis", "pacientes",
+                        "editar", "edição", "dados", "informação",
+                        "histórico", "próximos",
+                        "inicializar", "análise", "imagens",
+                        "microscópica", "automatizada", "manual",
+                        "manualmente",
+                        "geração", "gerar", "laudo",
+                        "envio", "remover", "eliminar",
+                        "monitorar", "monitoramento", "actividades",
+                        "Acção", "movimento", "trabalho", "faça"]
 
     #texto = "Analise manual mais exames e exames laboratorias tambem"
     resultados = analisar_texto(texto, palavras_chave)
@@ -83,17 +78,16 @@ def tecnico_laboratorio():
         return jsonify({"status": resultados, "url": url})
 
     elif ("filtro" in resultados) & (("perfis" in resultados) or ("pacientes" in resultados)):
-
         informacoes, outras_entidades = extrair_informacoes_pessoais(infor)
         nomes = informacoes['nomes']
         nomes= nomes[0]
-        
+
         #nome = "Kuenda"
         url = func.filtro_pacientes(nomes, password, email)
         return jsonify({"status": resultados, "url":url, "nomes":nomes})
     else:
         return "Não tem"
-        
+
     #return jsonify({"status": resultados})
 
 @app.route('/ver', methods=['GET'])
