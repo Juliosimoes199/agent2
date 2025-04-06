@@ -80,7 +80,7 @@ def tecnico_laboratorio():
             return informacoes_pessoais, outras_entidades
 
 
-        informacoes, outras_entidades = extrair_informacoes_pessoais(texto)
+        informacoes, outras_entidades = extrair_informacoes_pessoais("júlio como estas")
         nomes = informacoes['nomes']
         nomes= nomes[0]
         
