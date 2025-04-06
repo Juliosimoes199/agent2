@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request
 import sys
 import re
 import func
-#import exc
+import exc
 
 app = Flask(__name__)
 nlp = spacy.load("pt_core_news_md")  # Carrega o modelo Spacy uma vez
