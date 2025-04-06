@@ -4,6 +4,7 @@ from flask import Flask, jsonify, request
 import sys
 import re
 import func
+import exc
 
 app = Flask(__name__)
 nlp = spacy.load("pt_core_news_md")  # Carrega o modelo Spacy uma vez
@@ -51,9 +52,10 @@ def tecnico_laboratorio():
         return jsonify({"status": resultados, "url": url})
 
     elif ("filtro" in resultados) & (("perfis" in resultados) or ("pacientes" in resultados)):
+        nomes = exc.extrair_nomes(texto)
         nome = "Kuenda"
         url = func.filtro_pacientes(nome, password, email)
-        return jsonify({"status": resultados, "url":url})
+        return jsonify({"status": resultados, "url":url, "nomes":nomes})
     else:
         return "Não tem"
         
