@@ -5,7 +5,7 @@ import re
 # Carrega o modelo de linguagem do spaCy
 nlp = spacy.load("pt_core_news_sm")
 
-def extraor_nomes(texto):
+def extrair_nomes(texto):
     def extrair_informacoes_pessoais(texto):
         doc = nlp(texto)
         informacoes_pessoais = {
@@ -34,12 +34,20 @@ def extraor_nomes(texto):
     return informacoes_pessoais, outras_entidades
 
 # Texto de exemplo
-    texto = """O cliente com sexo feminino, julio cesar . entre em contato pelo e-mail maria.silva@example.com ou pelo telefone 999887766."""
+    #texto = """O cliente com sexo feminino, julio cesar . entre em contato pelo e-mail maria.silva@example.com ou pelo telefone 999887766."""
 
 # Extrai informações pessoais
     informacoes, outras_entidades = extrair_informacoes_pessoais(texto)
-
-
 #print("Outras Entidades Encontradas:", outras_entidades)
     nome = informacoes['nomes']
     return nome[0]
+
+
+
+
+
+
+
+
+
+
