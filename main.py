@@ -52,7 +52,7 @@ def tecnico_laboratorio():
 
     elif ("filtro" in resultados) & (("perfis" in resultados) or ("pacientes" in resultados)):
         nome = "julio cesar"
-        url = func.filtro_pacientes(nome, email, password)
+        url = func.filtro_pacientes()
         return jsonify({"status": resultados, "url":url})
     else:
         return "Não tem"
