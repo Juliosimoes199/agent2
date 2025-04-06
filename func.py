@@ -104,7 +104,6 @@ def filtro_pacientes():
     
 
     # Abre a página de login
-    navegador = webdriver.Chrome()
 
 # Abre a página de login
     navegador.get('https://akin-lis-app-web.vercel.app/')
