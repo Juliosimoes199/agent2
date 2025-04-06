@@ -92,7 +92,7 @@ def filto_exames_confirmado(email, password):
         # Garante que o navegador seja fechado
         navegador.quit()
 
-def filtro_pacientes(name, senha, emal):
+def filtro_pacientes(nome, password, email):
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Executa sem interface gráfica
     chrome_options.add_argument("--no-sandbox")  # Recomendado para ambientes como VMs
