@@ -50,8 +50,9 @@ def tecnico_laboratorio():
         url = func.filto_exames_confirmado(email, password)
         return jsonify({"status": resultados, "url": url})
 
-    elif ("automatizada" in resultados) & (("inicializar" in resultados) or ("faça" in resultados)):
-        return jsonify({"status": resultados})
+    elif ("filtro" in resultados) & (("perfis" in resultados) or ("pacientes" in resultados)):
+        url = func.perfil_pacientes(nome)
+        return jsonify({"status": resultados, "url":url})
     else:
         return "Não tem"
         
