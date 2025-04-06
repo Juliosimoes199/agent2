@@ -103,16 +103,13 @@ def filtro_pacientes(name, senha, emal):
     navegador = webdriver.Chrome(options=chrome_options)
     
 
-    # Abre a página de login
-
-# Abre a página de login
     navegador.get('https://akin-lis-app-web.vercel.app/')
     navegador.maximize_window()
-# Preenche as abas de login (substitua 'username_field', 'password_field' e 'login_button' pelos seletores corretos)
-    navegador.find_element("id", "email").send_keys(emal)
-    navegador.find_element("id", "password").send_keys(senha)
-# Identificar o botão usando uma parte da classe e o tipo
-#navegador.find_element(By.CSS_SELECTOR, 'button.bg-blue-600[type="submit"]').click()
+    # Preenche as abas de login (substitua 'username_field', 'password_field' e 'login_button' pelos seletores corretos)
+    navegador.find_element("id", "email").send_keys(email)
+    navegador.find_element("id", "password").send_keys(password)
+    # Identificar o botão usando uma parte da classe e o tipo
+    #navegador.find_element(By.CSS_SELECTOR, 'button.bg-blue-600[type="submit"]').click()
     wait = WebDriverWait(navegador, 30)
     element = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/section/div/div/div[2]/form/button')))
     element.click()
@@ -123,16 +120,15 @@ def filtro_pacientes(name, senha, emal):
 
     wait = WebDriverWait(navegador, 30000)
     element = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/main/div/div/div[1]/div/div/div[1]/div[2]/input')))
-    element.send_keys(name)
+    element.send_keys(nome)
 
     wait = WebDriverWait(navegador, 30000)
     element = wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div/main/div/div/div[1]/div/div/div[2]/table/tbody/tr/td[6]/a')))
     element.click()
 
     time.sleep(1)
-# Obter a URL da aba atual
+    # Obter a URL da aba atual
     current_url = navegador.current_url
-
     return  current_url
 
 def ola1():
