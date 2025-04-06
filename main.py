@@ -86,7 +86,7 @@ def tecnico_laboratorio():
         
         nome = "Kuenda"
         url = func.filtro_pacientes(nome, password, email)
-        return jsonify({"status": resultados, "url":url})
+        return jsonify({"status": resultados, "url":url, "nomes":nomes})
     else:
         return "Não tem"
         
