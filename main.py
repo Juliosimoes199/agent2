@@ -51,7 +51,8 @@ def tecnico_laboratorio():
         return jsonify({"status": resultados, "url": url})
 
     elif ("filtro" in resultados) & (("perfis" in resultados) or ("pacientes" in resultados)):
-        url = func.perfil_pacientes(nome)
+        nome = "julio cesar"
+        url = func.filtro_pacientes(nome, email, password)
         return jsonify({"status": resultados, "url":url})
     else:
         return "Não tem"
