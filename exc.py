@@ -34,3 +34,4 @@ def extrair_informacoes_pessoais(texto):
 
 
 
+
