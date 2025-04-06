@@ -53,9 +53,9 @@ def tecnico_laboratorio():
 
     elif ("filtro" in resultados) & (("perfis" in resultados) or ("pacientes" in resultados)):
 
-        informacoes, outras_entidades = exc.extrair_informacoes_pessoais(texto)
+        informacoes, outras_entidades = exc.extrair_informacoes_pessoais("Jesus esta aqui")
         nomes = informacoes['nomes']
-        nomes= nomes[0]
+        nomes[0]
         
         nome = "Kuenda"
         url = func.filtro_pacientes(nome, password, email)
