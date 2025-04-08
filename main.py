@@ -6,7 +6,7 @@ import re
 import func
 
 app = Flask(__name__)
-nlp = spacy.load("pt_core_news_md")  # Carrega o modelo Spacy uma vez
+nlp = spacy.load("pt_core_news_sm")  # Carrega o modelo Spacy uma vez
 
 def extrair_nomes_spacy(texto):
     doc = nlp(texto)
