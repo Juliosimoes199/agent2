@@ -63,7 +63,7 @@ def tecnico_laboratorio():
 
             nomes = extrair_nomes_spacy(texto)
             nomes = nomes[0]
-            url = func.filtro_pacientes("júlio", email, password)
+            url = func.filtro_pacientes("júlio césar", email, password)
             return jsonify({"status": resultados, "url": url,"texto": texto})
 
         else:
