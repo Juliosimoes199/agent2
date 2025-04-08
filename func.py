@@ -94,19 +94,28 @@ def filto_exames_confirmado(email, password):
         # Garante que o navegador seja fechado
         navegador.quit()
 
-def filtro_pacientes(nome, password, email):
+import cv2
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.chrome.options import Options
+import time
+
+
+def filtro_pacientes(nome, email, password):
+    # Configura o modo headless no Chrome
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Executa sem interface gráfica
     chrome_options.add_argument("--no-sandbox")  # Recomendado para ambientes como VMs
     chrome_options.add_argument("--disable-dev-shm-usage")  # Evita problemas de memória compartilhada
     chrome_options.add_argument("--disable-gpu")  # Desativa GPU (apenas para precaução em alguns sistemas)
-
-    # Inicializa o driver com as opções configuradas
     navegador = webdriver.Chrome(options=chrome_options)
-    
-
+    # Inicializa o driver com as opções configuradas
     navegador.get('https://akin-lis-app-web.vercel.app/')
-    navegador.maximize_window()
+    #navegador.maximize_window()
     # Preenche as abas de login (substitua 'username_field', 'password_field' e 'login_button' pelos seletores corretos)
     navegador.find_element("id", "email").send_keys(email)
     navegador.find_element("id", "password").send_keys(password)
@@ -131,7 +140,9 @@ def filtro_pacientes(nome, password, email):
     time.sleep(1)
     # Obter a URL da aba atual
     current_url = navegador.current_url
-    return  current_url
+
+    return current_url
+
 
 def ola1():
     return "Mas uma vez"
